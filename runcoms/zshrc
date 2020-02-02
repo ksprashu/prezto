@@ -11,3 +11,36 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export TERM=xterm-256color
+
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
+source /etc/bash_completion.d/g4d
+
+alias mkdir='mkdir -p -v'
+alias v="nvim"
+alias vi="vim"
+alias vim="nvim"
+
+export TERM="xterm-256color"
+setopt RM_STAR_WAIT
+setopt interactivecomments
+setopt CORRECT
+
+export NVIM_PYTHON_LOG_FILE=/tmp/log
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/google/home/ksprashanth/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/google/home/ksprashanth/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/google/home/ksprashanth/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/google/home/ksprashanth/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
