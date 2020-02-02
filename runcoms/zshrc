@@ -16,11 +16,13 @@ DEFAULT_USER=prashanth
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
-source /etc/bash_completion.d/g4d
+if [[ "$OSTYPE" != darwin* ]]; then
+  source /etc/bash_completion.d/g4d
+fi
 
 alias mkdir='mkdir -p -v'
-alias v="nvim"
-alias vi="vim"
+# alias v="nvim"
+# alias vi="vim"
 alias vim="nvim"
 
 export TERM="xterm-256color"
@@ -51,9 +53,9 @@ alias serve='python -m SimpleHTTPServer 9000'
 alias newnode='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request async bluebird lodash bunyan --save'
 alias newmocha='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request lodash mocha chai --save-dev'
 
+
 # The next line updates PATH for the Google Cloud SDK.
-source '/opt/google-cloud-sdk/path.zsh.inc'
+if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ksprashanth/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-source '/opt/google-cloud-sdk/completion.zsh.inc'
-
+if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
