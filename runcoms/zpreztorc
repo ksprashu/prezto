@@ -220,11 +220,7 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Set the default session name:
-<<<<<<< HEAD
-# zstyle ':prezto:module:tmux:session' name 'work'
-=======
 zstyle ':prezto:module:tmux:session' name 'work'
->>>>>>> da84d23dbc1c2b2a74e2a7a092287d74a65efcbf
 
 #
 # Utility
