@@ -23,4 +23,4 @@ if [[ -o INTERACTIVE && -t 2 ]]; then
     print
   fi
 
-fi >&2
+fi

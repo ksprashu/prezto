@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #
 # Executes commands at the start of an interactive session.
 #
@@ -12,14 +19,17 @@ fi
 
 # Customize to your needs...
 export TERM=xterm-256color
+DEFAULT_USER=ksprashanth
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
-source /etc/bash_completion.d/g4d
+if [[ "$OSTYPE" != darwin* ]]; then
+  source /etc/bash_completion.d/g4d
+fi
 
 alias mkdir='mkdir -p -v'
-alias v="nvim"
-alias vi="vim"
+# alias v="nvim"
+# alias vi="vim"
 alias vim="nvim"
 
 export TERM="xterm-256color"
@@ -28,9 +38,6 @@ setopt interactivecomments
 setopt CORRECT
 
 export NVIM_PYTHON_LOG_FILE=/tmp/log
-
-source ~/zsh-async/async.zsh
-# source ~/goog_prompt.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -46,3 +53,19 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias serve='python -m SimpleHTTPServer 9000'
+alias newnode='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request async bluebird lodash bunyan --save'
+alias newmocha='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request lodash mocha chai --save-dev'
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ksprashanth/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
