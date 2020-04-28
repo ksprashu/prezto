@@ -33,10 +33,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'homebrew' \
-  'osx' \
-  'ruby' \
-  'rails' \
   'git' \
   'node' \
   'python' \
