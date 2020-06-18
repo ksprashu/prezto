@@ -90,3 +90,6 @@ export HOMEBREW_GITHUB_API_TOKEN=4b51fcaf6672bc03c037c50e2ca156b827ff7b47
 # export LC_CTYPE=C
 # export LANG=C
 # export USE_CCACHE=1
+#
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"#
