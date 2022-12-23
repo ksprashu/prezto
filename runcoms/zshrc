@@ -31,6 +31,8 @@ alias mkdir='mkdir -p -v'
 # alias v="nvim"
 # alias vi="vim"
 alias vim="nvim"
+alias py3="python3"
+alias python="python3"
 
 export TERM="xterm-256color"
 setopt RM_STAR_WAIT
@@ -41,14 +43,14 @@ export NVIM_PYTHON_LOG_FILE=/tmp/log
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/ksprashu/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/ksprashu/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ksprashu/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/anaconda3/bin:$PATH"
+        export PATH="/home/ksprashu/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -56,7 +58,7 @@ unset __conda_setup
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias serve='python -m SimpleHTTPServer 9000'
+alias serve='python3 -m http.server 9000'
 alias newnode='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request async bluebird lodash bunyan --save'
 alias newmocha='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request lodash mocha chai --save-dev'
 
@@ -74,4 +76,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+export GOGLE_APPLICATION_CREDENTIALS="$HOME/.secrets/next-eventapp-demo-localdev.json"
 

@@ -12,6 +12,9 @@
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
+if [[ "$OSTYPE" == linux-gnu ]]; then
+  export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
+fi
 
 #
 # Editors
@@ -43,7 +46,9 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.local/bin
   $HOME/bin
+  /usr/local/go/bin
   /opt/local/bin
   /usr/local/{bin,sbin}
   $HOME/.rvm/bin
