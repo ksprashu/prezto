@@ -95,7 +95,6 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 # User Defaults
 #
 
-export HOMEBREW_GITHUB_API_TOKEN=4b51fcaf6672bc03c037c50e2ca156b827ff7b47
 # export NVM_DIR=~/.nvm
 # export AUTH_HOST=koocing.c.googlers.com
 
