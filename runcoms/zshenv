@@ -13,3 +13,8 @@ fi
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.env" ]]; then
   source "${ZDOTDIR:-$HOME}/.env"
 fi
+
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zlocal" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zlocal"
+fi
+

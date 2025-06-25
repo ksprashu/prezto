@@ -12,6 +12,9 @@
 if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
+if [[ "$OSTYPE" == linux-gnu ]]; then
+  export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
+fi
 
 #
 # Editors
@@ -49,8 +52,11 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.local/bin
   $HOME/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
+  /usr/local/go/bin
+  $HOME/.rvm/bin
   /usr/local/{,s}bin(N)
   $path
 #  /Volumes/CyanogenModWorkspace/bin

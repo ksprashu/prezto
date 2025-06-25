@@ -21,6 +21,11 @@ fi
 export TERM=xterm-256color
 DEFAULT_USER=ksprashanth
 
+# Setting for the new UTF-8 terminal support in Lion
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
 if [[ "$OSTYPE" != darwin* ]] && [[ "$USER" == ksprashanth ]]; then
@@ -36,6 +41,7 @@ alias mkdir='mkdir -p -v'
 # alias v="nvim"
 # alias vi="vim"
 alias vim="nvim"
+alias py3="python3"
 alias python="python3"
 alias pip="python3 -m pip"
 alias pip3="python3 -m pip"
@@ -49,7 +55,7 @@ export NVIM_PYTHON_LOG_FILE=/tmp/log
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -64,16 +70,10 @@ unset __conda_setup
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias serve='python -m SimpleHTTPServer 9000'
+alias serve='python3 -m http.server 9000'
 alias newnode='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request async bluebird lodash bunyan --save'
 alias newmocha='echo > package.json "{\"dependencies\": {},\"devDependencies\": {}}" && npm install request lodash mocha chai --save-dev'
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ksprashanth/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -81,6 +81,12 @@ if [ -f '/Users/ksprashanth/Downloads/google-cloud-sdk/completion.zsh.inc' ]; th
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+export GOGLE_APPLICATION_CREDENTIALS="$HOME/.secrets/next-eventapp-demo-localdev.json"
 
 alias pastebin="/google/src/head/depot/eng/tools/pastebin"
 
@@ -95,3 +101,11 @@ fi
 alias vsc-restart='systemctl --user restart code-server'
 
 work() { tmx2 new-session -A -s ${1:-work}; }
+
+export PATH="$(yarn global bin):$HOME/.gem/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ksprashanth/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ksprashanth/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ksprashanth/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ksprashanth/google-cloud-sdk/completion.zsh.inc'; fi
