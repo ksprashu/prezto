@@ -25,7 +25,12 @@ DEFAULT_USER=ksprashanth
 
 if [[ "$OSTYPE" != darwin* ]] && [[ "$USER" == ksprashanth ]]; then
   source /etc/bash_completion.d/g4d
+  source /etc/bash_completion.d/hgd
 fi
+
+alias devsite_codelabs='/google/bin/releases/devrel-codelabs/devsite_codelabs'
+complete -W "create_cl flags help update_cl" devsite_codelabs
+export TENANT="codelabs"
 
 alias mkdir='mkdir -p -v'
 # alias v="nvim"
@@ -78,3 +83,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias pastebin="/google/src/head/depot/eng/tools/pastebin"
+
+gcertstatus --quiet || gcert
+alias source-devsite='source /google/src/head/depot/google3/devsite/two/tools/aliases.sh'
+if source-devsite ; then
+  : # echo 'DevSite aliases are available.'
+else
+  echo 'Sourcing DevSite failed; run `gcert`, then run `source-devsite`.'
+fi
+
+alias vsc-restart='systemctl --user restart code-server'
+
+work() { tmx2 new-session -A -s ${1:-work}; }
