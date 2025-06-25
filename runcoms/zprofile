@@ -105,3 +105,5 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 #
 export LDFLAGS="-L/usr/local/opt/curl/lib"
 export CPPFLAGS="-I/usr/local/opt/curl/include"#
+
+
